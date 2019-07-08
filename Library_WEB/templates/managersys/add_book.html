@@ -1,0 +1,84 @@
+{% extends "managersys/base/base_page.html" %}
+{% load staticfiles %}
+{% block content %}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <form id="allInputsFormValidation" class="form-horizontal" action="" method="post"
+                              novalidate="">
+                            {% csrf_token %}
+                            <div class="content">
+                                <h4 class="title">图书收录</h4>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            书名
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control"
+                                                   type="text"
+                                                   name="name"
+                                                   required="required"
+                                            />
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            作者
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control"
+                                                   type="text"
+                                                   name="author"
+                                                   required="required"
+                                            />
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            ISBN
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control"
+                                                   type="text"
+                                                   name="number"
+                                                   number="true"
+                                            />
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            出版日期
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control"
+                                                   type="text"
+                                                   name="publishdate"
+                                                   required="required"
+                                            />
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <div class="card-footer text-center">
+                                    <button type="submit" class="btn btn-info btn-fill">添加</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

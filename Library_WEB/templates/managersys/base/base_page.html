@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+
+    {% include "managersys/base/base_header.html" %}
+    <title>图书管理系统</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'>
+    <meta name="viewport" content="width=device-width">
+    {% include "core_template_css.html" %}
+</head>
+
+<body>
+<div class="wrapper">
+    {% include "managersys/base/navgation.html" %}
+    <div class="main-panel">
+        {% include "managersys/base/right_navgation.html" %}
+        {% block content %}
+        {#TODO:显示界面   #}
+        {% endblock %}
+        {% include "managersys/base/base_footer.html" %}
+    </div>
+</div>
+{% include "core_template_js.html" %}
+
+{% block pagescript %}
+
+{% endblock %}
+</body>
+</html>

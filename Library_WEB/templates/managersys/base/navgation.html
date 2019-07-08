@@ -1,0 +1,55 @@
+<div class="sidebar" data-background-color="brown" data-active-color="danger">
+    <div class="logo">
+        <a href="#" class="simple-text">
+            图书管理系统
+        </a>
+    </div>
+    <div class="logo logo-mini">
+        <a href="#" class="simple-text">
+            A
+        </a>
+    </div>
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="active">
+                <a href="{% url 'managersys:index' %}">
+                    <i class="ti-panel"></i>
+                    <p>数据面板</p>
+                </a>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#pages" class="collapsed" aria-expanded="false">
+                    <i class="ti-widget"></i>
+                    <p>管理
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="pages" role="navigation" aria-expanded="false" style="height: 0px;">
+                    <ul class="nav">
+                        <li><a href="{% url 'managersys:default_viewbooks' %}">图书管理</a></li>
+                        <li><a href="{% url 'managersys:addbook' %}">添加图书</a></li>
+                        <li><a href="{% url 'managersys:reader_manage' 0 %}">读者管理</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="{% url 'managersys:view_message' %}">
+                    <i class="ti-package"></i>
+                    <p>查看留言</p>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'managersys:user_profile' %}">
+                    <i class="ti-panel"></i>
+                    <p>个人中心</p>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'managersys:logout' %}">
+                    <i class="ti-panel"></i>
+                    <p>注销</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

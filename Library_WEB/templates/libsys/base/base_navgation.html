@@ -1,0 +1,54 @@
+{% load staticfiles %}
+
+<div class="header">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header navbar-left wthree">
+                <h1><a href="{% url 'libsys:index' %}">图书管理系统<span>Sanfen</span></a></h1>
+            </div>
+            <!-- navigation -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="header-right wthree">
+                <div class="top-nav-text">
+                    <p>联系我们: <span>1461956787@qq.com</span></p>
+                    <div id="sb-search" class="sb-search">
+                        <form action="{% url "libsys:union_search" %}" method="post">
+
+                            <input type="search" class="sb-search-input" name="name"
+                                   placeholder="输入你需要寻找的书籍" id="search" required="">
+                            <input class="sb-search-submit" type="submit" value="">
+                            <span class="sb-icon-search"> </span>
+                             {% csrf_token %}
+                        </form>
+                        <div class="clearfix"></div>
+                        <!-- search-scripts -->
+                        <script src="{% static 'libsys/js/classie.js' %}"></script>
+                        <script src="{% static 'libsys/js/uisearch.js' %}"></script>
+                        <script>
+                            new UISearch(document.getElementById('sb-search'));
+                        </script>
+                        <!-- //search-scripts -->
+                    </div>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left cl-effect-14">
+                        <li><a href="{% url 'libsys:index' %}" class="active">主页</a></li>
+                        <li><a href="{% url 'libsys:union_search' %}">高级检索</a></li>
+                        <li><a href="{% url 'libsys:default_book_rank' %}">借阅排行</a></li>
+                        <li><a href="{% url 'libsys:default_new_books' %}">图书上新</a></li>
+                        <li><a href="{% url 'libsys:message_board' %}">留言板</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div><!-- //navigation -->
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,161 @@
+{% extends "managersys/base/base_page.html" %}
+{% load staticfiles %}
+{% block content %}
+    <div class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="icon-big icon-warning text-center">
+                                        <i class="ti-stats-up"></i>
+                                    </div>
+                                </div>
+                                <div class="col-xs-7">
+                                    <div class="numbers">
+                                        <p>读者</p>
+                                       {{ reader_num }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="ti-alert text-warning"></i> 读者
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="icon-big icon-danger text-center">
+                                        <i class="ti-receipt"></i>
+                                    </div>
+                                </div>
+                                <div class="col-xs-7">
+                                    <div class="numbers">
+                                        <p>借阅</p>
+                                        {{ borrowed }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="ti-tag text-warning"></i> 借阅量
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="icon-big icon-success text-center">
+                                        <i class="ti-money"></i>
+                                    </div>
+                                </div>
+                                <div class="col-xs-7">
+                                    <div class="numbers">
+                                        <p>罚款合计</p>
+                                        {{ fine }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="ti-calendar"></i> 罚款合计
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="icon-big icon-info text-center">
+                                        <i class="ti-twitter"></i>
+                                    </div>
+                                </div>
+                                <div class="col-xs-7">
+                                    <div class="numbers">
+                                        <p>图书总量</p>
+                                        {{ book_num }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="ti-reload"></i> 图书总量
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card" style="min-height: 350px">
+                        <div class="header card-header-icon">
+                            <h4 class="title"><i class="ti-pulse"></i> Sales Trend
+                            </h4>
+                        </div>
+                        <div class="content">
+                            <div class="chart-edge">
+                                <div id="line-chart" class="demo-placeholder"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card card-circle-chart" data-background="color" data-color="orange"
+                         style="min-height: 350px">
+                        <div class="header text-center">
+                            <h5 class="title">电子书下载量</h5>
+                            <p class="description">Last 30 days</p>
+                        </div>
+                        <div class="content">
+                            <div id="chartNewVisitors" class="chart-circle" data-percent="95">95%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card card-circle-chart" data-background="color" data-color="brown"
+                         style="min-height: 350px">
+                        <div class="header text-center">
+                            <h5 class="title">借阅比例</h5>
+                            <p class="description">Last 30 days</p>
+                        </div>
+                        <div class="content">
+                            <div id="chartSubscriptions" class="chart-circle" data-percent="9">9%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block pagescript %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            {#demo.initVectorMap();#}
+            {#demo.initCirclePercentage();#}
+
+        });
+    </script>
+{% endblock %}
+

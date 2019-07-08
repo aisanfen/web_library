@@ -1,0 +1,35 @@
+<div class="footer">
+    <div class="container">
+        <div class="col-md-4 w3layouts_footer_grid">
+            <div class="title">
+                <h2>关注我们</h2>
+            </div>
+            <div class="social-icon social_agileinfo">
+                <a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="social-button dribbble"><i class="fa fa-dribbble"></i></a>
+                <a href="#" class="social-button skype"><i class="fa fa-skype"></i></a>
+            </div>
+        </div>
+        <div class="col-md-8 w3layouts_footer_grid">
+            <form action="#" method="post">
+                <input type="email" name="Email" placeholder="您的联系邮箱" required="">
+                <input type="submit" value="Submit">
+                <div class="clearfix"></div>
+            </form>
+            <ul class="w3l_footer_nav">
+                <li><a href="{% url 'libsys:index' %}" class="active">主页</a></li>
+                <li><a href="{% url 'libsys:union_search' %}">高级检索</a></li>
+                <li><a href="{% url 'libsys:default_book_rank' %}">借阅排行</a></li>
+                <li><a href="{% url 'libsys:default_new_books' %}">图书上新</a></li>
+                <li><a href="{% url 'libsys:message_board' %}">留言板</a></li>
+                <li><a href="{% url 'libsys:about' %}">关于我们</a></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="footer-w3copy w3-agileits">
+    <p>Copyright &copy; 2017.Company CUIT </p>
+</div>

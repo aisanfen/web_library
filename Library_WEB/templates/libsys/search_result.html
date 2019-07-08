@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>{{ page_name }}</title>
+    {% load staticfiles %}
+    {% block header_script %}
+        {% include "core_template_css.html" %}
+        {% include "core_template_js.html" %}
+    {% endblock %}
+    <!-- Custom Theme files -->
+    {% include "libsys/base/base_css.html" %}
+    <!-- //Custom Theme files -->
+    <!-- js -->
+
+    {% include "libsys/base/base_js.html" %}
+    {% include "libsys/base/base_hearder.html" %}
+    <!-- //js -->
+    <!-- web-fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- //web-fonts -->
+</head>
+<body>
+<!-- header -->
+<div class="header">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header navbar-left wthree">
+                <h1><a href="{% url 'libsys:index' %}">图书管理系统<span>Sanfen</span></a></h1>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="header-right wthree">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left cl-effect-14">
+                        <li><a href="{% url 'libsys:index' %}" class="active">主页</a></li>
+                        <li><a href="{% url 'libsys:union_search' %}">高级检索</a></li>
+                        <li><a href="{% url 'libsys:default_book_rank' %}">借阅排行</a></li>
+                        <li><a href="{% url 'libsys:default_new_books' %}">图书上新</a></li>
+                        <li><a href="{% url 'libsys:message_board' %}">留言板</a></li>
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div><!-- //navigation -->
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </nav>
+</div>
+<!-- //header -->
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header ">
+                    <h4 class="title">Book Table</h4>
+                </div>
+                <div class="content">
+                    <div class="table-responsive">
+                        <table class="table table-shopping">
+                            <thead>
+                            <tr>
+                                <th class="text-center"></th>
+                                <th>书名/出版社</th>
+                                <th class="text-right">ISBN</th>
+                                <th class="text-right">作者</th>
+                                <th class="text-right">可借阅数量</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for book in books %}
+                            <tr>
+                                <td>
+                                    <div class="img-container">
+                                        <img src="{% static book.image_url %}" alt="...">
+                                    </div>
+                                </td>
+                                <td class="td-name">
+                                    <a href="{% url 'libsys:book_info' id=book.id %}">
+                                        {{ book.name }}
+                                    </a>
+                                    <br/>
+                                    <small>{{ book.publish_name }}</small>
+                                </td>
+                                <td class="td-number text-right">
+                                    {{ book.ISBN }}
+                                </td>
+                                <td class="td-number">
+                                    {{ book.author }}
+                                </td>
+                                <td class="td-number">
+                                    1
+                                </td>
+                                <td class="td-actions">
+                                    <button type="button" rel="tooltip" title="Borrow"
+                                            class="btn btn-danger btn-simple">
+                                        <i class="ti-package"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+{% include "libsys/base/base_footer.html" %}
+<!-- //footer -->
+</body>
+</html>
